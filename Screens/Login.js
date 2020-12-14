@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   StyleSheet, Text, TextInput, KeyboardAvoidingView,
-  View, TouchableOpacity, Dimensions
+  View, TouchableOpacity, Dimensions, Alert
 } from 'react-native';
 import { auth } from '../config'
 
@@ -18,9 +18,9 @@ export default class SignUp extends React.Component {
   static navigationOptions = {
     title: "Login"
   }
-  Login(Email,Password) {
-    auth().signInWithEmailAndPassword(Email, Password).then(() => {
-      this.props.navigation.navigate("Home")
+  Login(Email, Password) {
+    auth.signInWithEmailAndPassword(Email, Password).then(() => {
+      this.props.navigation.navigate("BottomTab")
     })
       .catch(error => {
 
@@ -35,9 +35,9 @@ export default class SignUp extends React.Component {
       <KeyboardAvoidingView
         behavior="position"
         style={styles.container}>
-        
-          <Text style={{ fontWeight: 'bold',color:'#ff1493', fontSize: 25 }}>Login</Text>
-        
+
+        <Text style={{ fontWeight: 'bold', color: '#ff1493', fontSize: 25 }}>Login</Text>
+
         <Item floatingLabel
 
           style={{ borderBottomColor: "red" }}
@@ -59,7 +59,7 @@ export default class SignUp extends React.Component {
           />
         </Item>
         <Button full rounded success
-          style={{ margin: 10, justifyContent: 'center'}}
+          style={{ margin: 10, justifyContent: 'center' }}
           onPress={() => this.Login(this.state.Email,
             this.state.Password)}
         >

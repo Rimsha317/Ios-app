@@ -9,16 +9,16 @@ import BottomTab from './bottomTab'
 
 const Navigator = createSwitchNavigator({
 
-
+    authStack: {
+        screen: AuthStack
+    },
 
     BottomTab:{
 
         screen:BottomTab
     },
 
-   //authStack: {
-       // screen: AuthStack
-    //}
+   
 
    
 
